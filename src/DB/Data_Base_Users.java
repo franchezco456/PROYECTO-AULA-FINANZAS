@@ -9,7 +9,7 @@ import java.sql.*;
  *
  * @author FRANKY F
  */
-public class Data_Base_Uses {
+public class Data_Base_Users {
         private String url="jdbc:mysql://root:WxdRLyKGfWeAvPkaQaRTWUofQscvcBiy@junction.proxy.rlwy.net:58437/railway";
         private String user="root";
         private String password="WxdRLyKGfWeAvPkaQaRTWUofQscvcBiy";
@@ -57,6 +57,7 @@ public class Data_Base_Uses {
             return false;
         }
     }
+    
     public void crear_Usuario(String id, String pass){
         if(!existe_DB_USER(id)){
             try{
@@ -90,8 +91,24 @@ public class Data_Base_Uses {
             System.out.println("El usuario no existe en la base de datos");
         }
     }
+    
+    public void eliminar_Usuario(String id){
+         if(existe_DB_USER(id)){
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("delete from Usuarios where ID = ?");
+            pst.setString(1, id);
+            pst.executeUpdate();
+            System.out.println("el usuario se eliminado correctamente");
+            }catch(SQLException e){
+                System.out.println("Error: " +  e);
+            }
+        }else{
+            System.out.println("El usuario no existe en la base de datos");
+        }
+    }
     public static void main(String[] args) {
-        Data_Base_Uses a = new Data_Base_Uses();
-        a.modificar_Usuario("7196937401", "1047396917", "soy la mera verga");
+        Data_Base_Users a = new Data_Base_Users();
+        a.eliminar_Usuario("98hbjhb");
     }
 }
