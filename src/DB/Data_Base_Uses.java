@@ -38,9 +38,48 @@ public class Data_Base_Uses {
             return false;
         }
     }
+    
+    public boolean existe_DB_USER(String id){
+        try{  
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("select * from Usuarios where ID = ?");
+            pst.setString(1, id);
+            
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                System.out.println("El usuario existe en la base de datos");
+                return true;
+            }else{
+                System.out.println("El usuario no existe en la base de datos");
+                return false;
+            }
+        }catch(SQLException e){
+            System.out.println("Error: " + e);
+            return false;
+        }
+    }
+    public void crear_Usuario(String id, String pass){
+        if(!existe_DB_USER(id)){
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("insert into Usuarios values (?,?)");
+            pst.setString(1, id);
+            pst.setString(2,pass);
+            pst.executeUpdate();
+            System.out.println("se ha insertado correctamente");
+            }catch(SQLException e){
+                System.out.println("Error: " +  e);
+            }
+        }else{
+            System.out.println("El usuario ya se encuentra registrado por favor inicie sesion");
+        }
+    }
     public static void main(String[] args) {
         Data_Base_Uses a = new Data_Base_Uses();
-        boolean result=a.validacion_DB("12343", "4566");
+        boolean result=a.validacion_DB("1047396917", "no te tucaba");
         System.out.println("result = " + result);
+        a.crear_Usuario("104739691cbhd7", "no te tucaba");
+        a.crear_Usuario("987654321", "password");
     }
 }
