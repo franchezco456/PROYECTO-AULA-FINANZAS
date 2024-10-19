@@ -48,10 +48,8 @@ public class Data_Base_Uses {
             ResultSet rs = pst.executeQuery();
             
             if(rs.next()){
-                System.out.println("El usuario existe en la base de datos");
                 return true;
             }else{
-                System.out.println("El usuario no existe en la base de datos");
                 return false;
             }
         }catch(SQLException e){
@@ -75,11 +73,25 @@ public class Data_Base_Uses {
             System.out.println("El usuario ya se encuentra registrado por favor inicie sesion");
         }
     }
+    
+    public void modificar_Usuario(String id, String id_nuevo, String password_nuevo){
+        if(existe_DB_USER(id)){
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("update Usuarios set ID = ? , PASSWORD = ? where ID = " + id);
+            pst.setString(1, id_nuevo);
+            pst.setString(2,password_nuevo);
+            pst.executeUpdate();
+            System.out.println("el usuario se ha modificado correctamente");
+            }catch(SQLException e){
+                System.out.println("Error: " +  e);
+            }
+        }else{
+            System.out.println("El usuario no existe en la base de datos");
+        }
+    }
     public static void main(String[] args) {
         Data_Base_Uses a = new Data_Base_Uses();
-        boolean result=a.validacion_DB("1047396917", "no te tucaba");
-        System.out.println("result = " + result);
-        a.crear_Usuario("104739691cbhd7", "no te tucaba");
-        a.crear_Usuario("987654321", "password");
+        a.modificar_Usuario("7196937401", "1047396917", "soy la mera verga");
     }
 }
