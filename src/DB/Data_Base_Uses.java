@@ -9,12 +9,12 @@ import java.sql.*;
  *
  * @author FRANKY F
  */
-public class CRUD {
+public class Data_Base_Uses {
         private String url="jdbc:mysql://root:WxdRLyKGfWeAvPkaQaRTWUofQscvcBiy@junction.proxy.rlwy.net:58437/railway";
         private String user="root";
         private String password="WxdRLyKGfWeAvPkaQaRTWUofQscvcBiy";
     public boolean validacion_DB(String id, String pass){
-        try{
+        try{  
             Connection cn = DriverManager.getConnection(url, user, password);
             PreparedStatement pst =cn.prepareStatement("select * from Usuarios where ID = ? AND PASSWORD = ?");
             pst.setString(1, id);
@@ -23,11 +23,13 @@ public class CRUD {
             ResultSet rs = pst.executeQuery();
             
             if(rs.next()){
+                //cambiar
                 System.out.println("CONEXION EXITOSA");
                 System.out.println(rs.getString("ID"));
                 System.out.println(rs.getString("PASSWORD"));
                 return true;
             }else{
+                //cambiar
                 System.out.println("no existe");
                 return false;
             }
@@ -37,7 +39,7 @@ public class CRUD {
         }
     }
     public static void main(String[] args) {
-        CRUD a = new CRUD();
+        Data_Base_Uses a = new Data_Base_Uses();
         boolean result=a.validacion_DB("12343", "4566");
         System.out.println("result = " + result);
     }
