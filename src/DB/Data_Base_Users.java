@@ -24,7 +24,7 @@ public class Data_Base_Users {
             
             if(rs.next()){
                 //cambiar
-                System.out.println("CONEXION EXITOSA");
+                System.out.println("CONEXION EXITOSA ");
                 System.out.println(rs.getString("ID"));
                 System.out.println(rs.getString("PASSWORD"));
                 return true;
