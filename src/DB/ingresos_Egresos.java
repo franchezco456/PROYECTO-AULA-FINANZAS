@@ -75,16 +75,41 @@ public class ingresos_Egresos {
             return cantidad+"";
         }
         
+        public String cantidad_Total(String id){
+            int cantidad=0;
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("select * from Economia where ID = ?");
+            pst.setString(1, id);
+             ResultSet rs = pst.executeQuery();
+             if(rs.next()){
+            do{
+           
+               cantidad+=rs.getInt(4);
+            
+            }while(rs.next());
+            
+             }else{
+                 return cantidad+"";
+             }
+            }catch(SQLException e){
+                
+            }
+            return cantidad+"";
+        }
         public static void main(String[] args) {
         ingresos_Egresos a = new ingresos_Egresos();
-        a.egresos("10473969173", "juegitos", 90500, "nequi");
-        a.ingresos("104734596917", "juegitos", 10500, "nequi");
-        a.ingresos("10473956917", "juegitos", 80500, "nequi");
-        a.ingresos("104732946917", "juegitos", 20500, "nequi");
-        a.ingresos("1047396346917", "juegitos", 60500, "nequi");
-        a.ingresos("10473963917", "juegitos", 3000, "nequi");
-        a.ingresos("10473936917", "juegitos", 9500, "nequi");
-        String f=a.cantidad_Cuenta("1047396917", "nequi");
+        a.egresos("1234", "juegitos", 90500, "nequi");
+        a.ingresos("1234", "juegitos", 10500, "nequi");
+        a.ingresos("1234","juegitos", 80500, "nequi");
+       a.ingresos("1234","juegitos", 20500, "nequi");
+        a.ingresos("1234","juegitos", 60500, "nequi");
+        a.ingresos("1234", "juegitos", 3000, "nequi");
+        a.ingresos("1234","juegitos", 9500, "nequi");
+        a.ingresos("1234","juegitos", 9500, "lulo");
+        String f=a.cantidad_Cuenta("1234", "nequi");
             System.out.println("f = " + f);
+         String g=a.cantidad_Total("1234");
+            System.out.println("g = " + g);
     }
 }
