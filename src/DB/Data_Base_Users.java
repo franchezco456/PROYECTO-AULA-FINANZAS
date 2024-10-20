@@ -38,7 +38,6 @@ public class Data_Base_Users {
             return false;
         }
     }
-    
     public boolean existe_DB_USER(String id){
         try{  
             Connection cn = DriverManager.getConnection(url, user, password);
