@@ -18,9 +18,9 @@ import javax.swing.JOptionPane;
  * @author FRANKY F
  */
 public class Pdf {
-        private String url="jdbc:mysql://root:WxdRLyKGfWeAvPkaQaRTWUofQscvcBiy@junction.proxy.rlwy.net:58437/railway";
+       private String url="jdbc:mysql://root:GuGPjRkRxIFIHGFLYmZAPrXpjsfxHPrR@junction.proxy.rlwy.net:23905/railway";
         private String user="root";
-        private String password="WxdRLyKGfWeAvPkaQaRTWUofQscvcBiy";
+        private String password="GuGPjRkRxIFIHGFLYmZAPrXpjsfxHPrR";
     public void reporte_PDF(){
         Document d = new Document();
         try {

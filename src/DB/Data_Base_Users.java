@@ -10,9 +10,9 @@ import java.sql.*;
  * @author FRANKY F
  */
 public class Data_Base_Users {
-        private String url="jdbc:mysql://root:WxdRLyKGfWeAvPkaQaRTWUofQscvcBiy@junction.proxy.rlwy.net:58437/railway";
+       private String url="jdbc:mysql://root:GuGPjRkRxIFIHGFLYmZAPrXpjsfxHPrR@junction.proxy.rlwy.net:23905/railway";
         private String user="root";
-        private String password="WxdRLyKGfWeAvPkaQaRTWUofQscvcBiy";
+        private String password="GuGPjRkRxIFIHGFLYmZAPrXpjsfxHPrR";
     public boolean validacion_DB(String id, String pass){
         try{  
             Connection cn = DriverManager.getConnection(url, user, password);
@@ -107,7 +107,12 @@ public class Data_Base_Users {
         }
     }
     public static void main(String[] args) {
-        Data_Base_Users a = new Data_Base_Users();
-        a.crear_Usuario("987654321", "qwerty");
+        Data_Base_Users a= new Data_Base_Users();
+        a.crear_Usuario("7890", "dgjmpwsejm");
+        a.crear_Usuario("789340", "dgjmpwsejm");
+        a.crear_Usuario("72890", "dgjmpwsejm");
+        a.crear_Usuario("78907655", "dgjmpwsejm");
+        a.crear_Usuario("780990", "dgjmpwsejm");
+        
     }
 }
