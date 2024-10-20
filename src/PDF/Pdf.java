@@ -25,7 +25,7 @@ public class Pdf {
         Document d = new Document();
         try {
             String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(d, new FileOutputStream(ruta + "/OneDrive/Escritorio/Reporte.pdf"));
+            PdfWriter.getInstance(d, new FileOutputStream(ruta + "/Documents/Reporte.pdf"));
             d.open();
 
             PdfPTable tabla = new PdfPTable(2);
