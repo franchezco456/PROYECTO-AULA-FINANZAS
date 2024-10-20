@@ -109,6 +109,6 @@ public class Data_Base_Users {
     }
     public static void main(String[] args) {
         Data_Base_Users a = new Data_Base_Users();
-        a.eliminar_Usuario("98hbjhb");
+        a.crear_Usuario("1047306917", "080606");
     }
 }
