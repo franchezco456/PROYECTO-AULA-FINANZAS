@@ -51,7 +51,40 @@ public class ingresos_Egresos {
         
     }
         
+        public String cantidad_Cuenta(String id, String cuenta){
+            int cantidad=0;
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("select * from Economia where ID = ? AND CUENTA = ?");
+            pst.setString(1, id);
+            pst.setString(2,cuenta);
+             ResultSet rs = pst.executeQuery();
+             if(rs.next()){
+            do{
+           
+               cantidad+=rs.getInt(4);
+            
+            }while(rs.next());
+            
+             }else{
+                 return cantidad+"";
+             }
+            }catch(SQLException e){
+                
+            }
+            return cantidad+"";
+        }
+        
         public static void main(String[] args) {
         ingresos_Egresos a = new ingresos_Egresos();
+        a.egresos("10473969173", "juegitos", 90500, "nequi");
+        a.ingresos("104734596917", "juegitos", 10500, "nequi");
+        a.ingresos("10473956917", "juegitos", 80500, "nequi");
+        a.ingresos("104732946917", "juegitos", 20500, "nequi");
+        a.ingresos("1047396346917", "juegitos", 60500, "nequi");
+        a.ingresos("10473963917", "juegitos", 3000, "nequi");
+        a.ingresos("10473936917", "juegitos", 9500, "nequi");
+        String f=a.cantidad_Cuenta("1047396917", "nequi");
+            System.out.println("f = " + f);
     }
 }
