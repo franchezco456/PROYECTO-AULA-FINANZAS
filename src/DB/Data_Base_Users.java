@@ -106,13 +106,4 @@ public class Data_Base_Users {
             System.out.println("El usuario no existe en la base de datos");
         }
     }
-    public static void main(String[] args) {
-        Data_Base_Users a= new Data_Base_Users();
-        a.crear_Usuario("7890", "dgjmpwsejm");
-        a.crear_Usuario("789340", "dgjmpwsejm");
-        a.crear_Usuario("72890", "dgjmpwsejm");
-        a.crear_Usuario("78907655", "dgjmpwsejm");
-        a.crear_Usuario("780990", "dgjmpwsejm");
-        
-    }
 }

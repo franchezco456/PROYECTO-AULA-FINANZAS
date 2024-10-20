@@ -97,19 +97,4 @@ public class ingresos_Egresos {
             }
             return cantidad+"";
         }
-        public static void main(String[] args) {
-        ingresos_Egresos a = new ingresos_Egresos();
-        a.egresos("1234", "juegitos", 90500, "nequi");
-        a.ingresos("1234", "juegitos", 10500, "nequi");
-        a.ingresos("1234","juegitos", 80500, "nequi");
-       a.ingresos("1234","juegitos", 20500, "nequi");
-        a.ingresos("1234","juegitos", 60500, "nequi");
-        a.ingresos("1234", "juegitos", 3000, "nequi");
-        a.ingresos("1234","juegitos", 9500, "nequi");
-        a.ingresos("1234","juegitos", 9500, "lulo");
-        String f=a.cantidad_Cuenta("1234", "nequi");
-            System.out.println("f = " + f);
-         String g=a.cantidad_Total("1234");
-            System.out.println("g = " + g);
-    }
 }
