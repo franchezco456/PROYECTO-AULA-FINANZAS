@@ -77,11 +77,13 @@ public class Data_Base_Users {
     public void modificar_Usuario(String id, String id_nuevo, String password_nuevo){
         if(existe_DB_USER(id)){
             try{
+            ingresos_Egresos ie = new ingresos_Egresos();
             Connection cn = DriverManager.getConnection(url, user, password);
             PreparedStatement pst =cn.prepareStatement("update Usuarios set ID = ? , PASSWORD = ? where ID = " + id);
             pst.setString(1, id_nuevo);
             pst.setString(2,password_nuevo);
             pst.executeUpdate();
+            ie.cambio_id(id, id_nuevo);
             System.out.println("el usuario se ha modificado correctamente");
             }catch(SQLException e){
                 System.out.println("Error: " +  e);
@@ -94,10 +96,13 @@ public class Data_Base_Users {
     public void eliminar_Usuario(String id){
          if(existe_DB_USER(id)){
             try{
+            ingresos_Egresos ie = new ingresos_Egresos();
             Connection cn = DriverManager.getConnection(url, user, password);
             PreparedStatement pst =cn.prepareStatement("delete from Usuarios where ID = ?");
             pst.setString(1, id);
             pst.executeUpdate();
+            ie.vaciar(id);
+            
             System.out.println("el usuario se eliminado correctamente");
             }catch(SQLException e){
                 System.out.println("Error: " +  e);

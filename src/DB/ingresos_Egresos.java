@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DB;
+import PDF.Pdf;
 import java.sql.*;
 import java.time.LocalDate;
 
@@ -96,5 +97,27 @@ public class ingresos_Egresos {
                 
             }
             return cantidad+"";
+        }
+        public void vaciar(String id){
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("delete from Economia where ID = " + id);
+            pst.executeUpdate();
+            System.out.println("se han eliminado todos los registros");
+            }catch(SQLException e){
+                System.out.println("Error = " + e);
+            }
+        }
+          public void cambio_id(String id_viejo, String id_nuevo){
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("update Economia set ID = ? where ID = ?");
+            pst.setString(1,id_nuevo);
+            pst.setString(2,id_viejo);
+            pst.executeUpdate();
+            System.out.println("se han modificado todos los registros");
+            }catch(SQLException e){
+                System.out.println("Error = " + e);
+            }  
         }
 }
