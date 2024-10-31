@@ -120,4 +120,9 @@ public class ingresos_Egresos {
                 System.out.println("Error = " + e);
             }  
         }
+          public static void main(String[] args) {
+        ingresos_Egresos x = new ingresos_Egresos();
+        x.egresos("0", "dj", 1500000, "nequi");
+        
+    }
 }

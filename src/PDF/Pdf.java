@@ -52,7 +52,7 @@ public class Pdf {
                     return;
                 }
 
-                d.add(tabla);
+              d.add(tabla);
 
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Error en la base de datos: " + e.getMessage());
@@ -64,5 +64,9 @@ public class Pdf {
         } catch (DocumentException | HeadlessException | FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Error al crear el PDF: " + e.getMessage());
         }
+    }
+    public static void main(String[] args) {
+        Pdf p = new Pdf();
+        p.reporte_PDF("0");
     }
 }
