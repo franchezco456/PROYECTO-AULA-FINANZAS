@@ -166,8 +166,8 @@ public class Signup extends javax.swing.JFrame {
     public static void main(String args[]) {
              Signup v = new Signup ();
              v.setVisible(true);
+             v.setTitle("Registrarse");
              v.setLocationRelativeTo(null);
-
  
 /*        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

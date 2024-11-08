@@ -182,6 +182,7 @@ public class Login extends javax.swing.JFrame {
                                            
              Login v = new Login ();
              v.setVisible(true);
+             v.setTitle("Inciar Sesion");
              v.setLocationRelativeTo(null);
 
 
