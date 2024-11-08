@@ -4,6 +4,7 @@
  */
 package DB;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,14 +24,10 @@ public class Data_Base_Users {
             ResultSet rs = pst.executeQuery();
             
             if(rs.next()){
-                //cambiar
-                System.out.println("CONEXION EXITOSA ");
-                System.out.println(rs.getString("ID"));
-                System.out.println(rs.getString("PASSWORD"));
+                //conexion exitosa :D
                 return true;
             }else{
                 //cambiar
-                System.out.println("no existe");
                 return false;
             }
         }catch(SQLException e){
@@ -65,23 +62,25 @@ public class Data_Base_Users {
             pst.setString(1, id);
             pst.setString(2,pass);
             pst.executeUpdate();
-            System.out.println("se ha insertado correctamente");
+            JOptionPane.showMessageDialog(null, "se ha insertado correctamente");
             }catch(SQLException e){
                 System.out.println("Error: " +  e);
             }
         }else{
-            System.out.println("El usuario ya se encuentra registrado por favor inicie sesion");
+            JOptionPane.showMessageDialog(null, "El usuario ya se encuentra registrado por favor inicie sesion");
         }
     }
     
     public void modificar_Usuario(String id, String id_nuevo, String password_nuevo){
         if(existe_DB_USER(id)){
             try{
+            ingresos_Egresos ie = new ingresos_Egresos();
             Connection cn = DriverManager.getConnection(url, user, password);
             PreparedStatement pst =cn.prepareStatement("update Usuarios set ID = ? , PASSWORD = ? where ID = " + id);
             pst.setString(1, id_nuevo);
             pst.setString(2,password_nuevo);
             pst.executeUpdate();
+            ie.cambio_id(id, id_nuevo);
             System.out.println("el usuario se ha modificado correctamente");
             }catch(SQLException e){
                 System.out.println("Error: " +  e);
@@ -94,10 +93,13 @@ public class Data_Base_Users {
     public void eliminar_Usuario(String id){
          if(existe_DB_USER(id)){
             try{
+            ingresos_Egresos ie = new ingresos_Egresos();
             Connection cn = DriverManager.getConnection(url, user, password);
             PreparedStatement pst =cn.prepareStatement("delete from Usuarios where ID = ?");
             pst.setString(1, id);
             pst.executeUpdate();
+            ie.vaciar(id);
+            
             System.out.println("el usuario se eliminado correctamente");
             }catch(SQLException e){
                 System.out.println("Error: " +  e);
@@ -105,14 +107,5 @@ public class Data_Base_Users {
         }else{
             System.out.println("El usuario no existe en la base de datos");
         }
-    }
-    public static void main(String[] args) {
-        Data_Base_Users a= new Data_Base_Users();
-        a.crear_Usuario("7890", "dgjmpwsejm");
-        a.crear_Usuario("789340", "dgjmpwsejm");
-        a.crear_Usuario("72890", "dgjmpwsejm");
-        a.crear_Usuario("78907655", "dgjmpwsejm");
-        a.crear_Usuario("780990", "dgjmpwsejm");
-        
     }
 }

@@ -6,25 +6,20 @@ package Ventanas;
 
 import DB.Data_Base_Users;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author JERICOTH
  */
-public class Login extends javax.swing.JFrame {
+public class Signup extends javax.swing.JFrame {
 
     /**
-     * Creates new form Login
+     * Creates new form Signup
      */
-    public Login() {
-        //MODIFICADO
-        //MODIFICADO
-        //MODIFICADO
-        //MODIFICADO
+    public Signup() {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/Ventanas/pictures/c1.png")).getImage());
-        
-  
     }
 
     /**
@@ -36,7 +31,6 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -45,26 +39,11 @@ public class Login extends javax.swing.JFrame {
         CajContraseña = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         CajDocumentodeidentidad = new javax.swing.JTextField();
-        btnRegistrase = new javax.swing.JButton();
-        btnIniciarSesion = new javax.swing.JButton();
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setMinimumSize(new java.awt.Dimension(400, 500));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
+        btnVolver = new javax.swing.JButton();
+        btnRegistrarse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Iniciar Sesion");
-        setPreferredSize(new java.awt.Dimension(800, 500));
+        setTitle("Registrarse");
         setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -100,9 +79,9 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
         jLabel1.setFont(new java.awt.Font("Roboto Black", 2, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("INICIAR SESION");
+        jLabel1.setText("REGISTRARSE");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(450, 50, 290, 80);
+        jLabel1.setBounds(470, 50, 270, 80);
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
@@ -129,73 +108,63 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(CajDocumentodeidentidad);
         CajDocumentodeidentidad.setBounds(420, 180, 350, 30);
 
-        btnRegistrase.setBackground(new java.awt.Color(0, 102, 102));
-        btnRegistrase.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        btnRegistrase.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrase.setText("REGISTRARSE");
-        btnRegistrase.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setBackground(new java.awt.Color(0, 102, 102));
+        btnVolver.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolver.setText("VOLVER");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistraseActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRegistrase);
-        btnRegistrase.setBounds(610, 320, 140, 40);
+        jPanel2.add(btnVolver);
+        btnVolver.setBounds(610, 320, 140, 40);
 
-        btnIniciarSesion.setBackground(new java.awt.Color(0, 102, 102));
-        btnIniciarSesion.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        btnIniciarSesion.setText("INICIAR SESION");
-        btnIniciarSesion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnIniciarSesion.setBorderPainted(false);
-        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarse.setBackground(new java.awt.Color(0, 102, 102));
+        btnRegistrarse.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse.setText("REGISTRARSE");
+        btnRegistrarse.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnRegistrarse.setBorderPainted(false);
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesionActionPerformed(evt);
+                btnRegistrarseActionPerformed(evt);
             }
         });
-        jPanel2.add(btnIniciarSesion);
-        btnIniciarSesion.setBounds(440, 320, 140, 40);
+        jPanel2.add(btnRegistrarse);
+        btnRegistrarse.setBounds(440, 320, 140, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 195, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 81, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegistraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistraseActionPerformed
-             Signup s = new Signup ();
-             s.setVisible(true);
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+             Login v = new Login ();
+             v.setVisible(true);
              dispose();
-             s.setTitle("Registrarse");
-             s.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnRegistraseActionPerformed
+             v.setTitle("Inciar Sesion");
+             v.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         Data_Base_Users cn = new Data_Base_Users();
-        String id= CajDocumentodeidentidad.getText();
+        String id=CajDocumentodeidentidad.getText();
         String pass=CajContraseña.getText();
-        if(cn.validacion_DB(id, pass)){
-            Principal p = new Principal(id);
-            p.setVisible(true);
-            dispose();
-            p.setTitle("Principal");
-            p.setLocationRelativeTo(null);
-        }
-    }//GEN-LAST:event_btnIniciarSesionActionPerformed
+        cn.crear_Usuario(id, pass);
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void CajDocumentodeidentidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CajDocumentodeidentidadKeyTyped
-        char c= evt.getKeyChar();
+         char c= evt.getKeyChar();
         if(c<'0' || c>'9') evt.consume();
         //con esto se evita que nos pongan letras y/o simbolos extraños en los ID
     }//GEN-LAST:event_CajDocumentodeidentidadKeyTyped
@@ -204,23 +173,15 @@ public class Login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-                                           //MODIFICADO
-                                           //MODIFICADO
-                                           //MODIFICADO
-                                          
-             Login v = new Login ();
+             Signup v = new Signup ();
              v.setVisible(true);
-             v.setTitle("Inciar Sesion");
+             v.setTitle("Registrarse");
              v.setLocationRelativeTo(null);
-             
-
-
-      
-        /* java.awt.EventQueue.invokeLater(new Runnable() {
+ 
+/*        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
-                
-           }
+                new Signup().setVisible(true);
+            }
         });
 */
     }
@@ -228,15 +189,13 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CajContraseña;
     private javax.swing.JTextField CajDocumentodeidentidad;
-    private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JButton btnRegistrase;
+    private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
-
 }

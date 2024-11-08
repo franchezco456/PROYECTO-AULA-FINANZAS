@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DB;
+import PDF.Pdf;
 import java.sql.*;
 import java.time.LocalDate;
 
@@ -51,7 +52,97 @@ public class ingresos_Egresos {
         
     }
         
-        public static void main(String[] args) {
-        ingresos_Egresos a = new ingresos_Egresos();
+        public String cantidad_Cuenta(String id, String cuenta){
+            int cantidad=0;
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("select * from Economia where ID = ? AND CUENTA = ?");
+            pst.setString(1, id);
+            pst.setString(2,cuenta);
+             ResultSet rs = pst.executeQuery();
+             if(rs.next()){
+            do{
+           
+               cantidad+=rs.getInt(4);
+            
+            }while(rs.next());
+            
+             }else{
+                 return cantidad+"";
+             }
+            }catch(SQLException e){
+                
+            }
+            return cantidad+"";
+        }
+        
+        public String cantidad_Total(String id){
+            int cantidad=0;
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("select * from Economia where ID = ?");
+            pst.setString(1, id);
+             ResultSet rs = pst.executeQuery();
+             if(rs.next()){
+            do{
+           
+               cantidad+=rs.getInt(4);
+            
+            }while(rs.next());
+            
+             }else{
+                 return cantidad+"";
+             }
+            }catch(SQLException e){
+                
+            }
+            return cantidad+"";
+        }
+        public void vaciar(String id){
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("delete from Economia where ID = " + id);
+            pst.executeUpdate();
+            System.out.println("se han eliminado todos los registros");
+            }catch(SQLException e){
+                System.out.println("Error = " + e);
+            }
+        }
+          public void cambio_id(String id_viejo, String id_nuevo){
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("update Economia set ID = ? where ID = ?");
+            pst.setString(1,id_nuevo);
+            pst.setString(2,id_viejo);
+            pst.executeUpdate();
+            System.out.println("se han modificado todos los registros");
+            }catch(SQLException e){
+                System.out.println("Error = " + e);
+            }  
+        }
+          public Integer gastos_tipo(String id, String tipo){
+              int cantidad=0;
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("select * from Economia where ID = ? AND TIPO = ?");
+            pst.setString(1, id);
+            pst.setString(2,tipo);
+             ResultSet rs = pst.executeQuery();
+             if(rs.next()){
+            do{
+           
+               cantidad+=(rs.getInt(4)*-1);
+            
+            }while(rs.next());
+            
+             }else{
+                 return cantidad;
+             }
+            }catch(SQLException e){
+                
+            }
+            return cantidad;
+          }
+          public static void main(String[] args) {
     }
 }
