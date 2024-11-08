@@ -76,6 +76,7 @@ public class Ingreso extends javax.swing.JFrame {
         jLabel8.setText("USUARIO: ");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 400));
         setResizable(false);
 
         Principal.setBackground(new java.awt.Color(255, 255, 255));
