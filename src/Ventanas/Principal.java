@@ -356,8 +356,7 @@ int comidas = IE.gastos_tipo(u, "Comidas"),
         vidaentretenimiento = IE.gastos_tipo(u, "Vida y Entretenimiento"), 
         comunicaciones = IE.gastos_tipo(u, "Comunicaciones"), 
         gastosfinancieros = IE.gastos_tipo(u, "Gastos financieros"), 
-        inversiones = IE.gastos_tipo(u, "Inversiones"), 
-        ingresos = IE.gastos_tipo(u, "Otros");
+        otros = IE.gastos_tipo(u, "Otros");
 
 
 
@@ -383,7 +382,7 @@ int comidas = IE.gastos_tipo(u, "Comidas"),
 
 //De aqui para abajo no se modifica
 
-int suma = comidas + compras + viviendas + transportes + vehiculos + vidaentretenimiento + comunicaciones + gastosfinancieros + inversiones + ingresos;
+int suma = comidas + compras + viviendas + transportes + vehiculos + vidaentretenimiento + comunicaciones + gastosfinancieros  + otros;
  
 // Cálculo de los grados para cada segmento
 int grados1 = comidas * 360 / suma;
@@ -394,8 +393,7 @@ int grados5 = vehiculos * 360 / suma;
 int grados6 = vidaentretenimiento * 360 / suma;
 int grados7 = comunicaciones * 360 / suma;
 int grados8 = gastosfinancieros * 360 / suma;
-int grados9 = inversiones * 360 / suma;
-int grados10 = ingresos * 360 / suma;
+int grados9 = otros * 360 / suma;
 
 // Dibujado de la gráfica de pastel
 
@@ -443,12 +441,7 @@ lapiz.drawString("Gastos Financieros", 585, 115);
 lapiz.setColor(Color.magenta);
 lapiz.fillArc(280, 60, 230, 230,grados1 + grados2 + grados3 + grados4 + grados5 + grados6 + grados7 + grados8, grados9);
 lapiz.fillRect(550, 130, 20, 20);
-lapiz.drawString("Inversiones", 585, 145);
-
-lapiz.setColor(Color.orange);
-lapiz.fillArc(280, 60, 230, 230,grados1 + grados2 + grados3 + grados4 + grados5 + grados6 + grados7 + grados8 + grados9, grados10);
-lapiz.fillRect(550, 160, 20, 20);
-lapiz.drawString("Ingresos", 585, 175);
+lapiz.drawString("Otros", 585, 145);
     }//GEN-LAST:event_btnActualizarGraficaActionPerformed
 
     private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed

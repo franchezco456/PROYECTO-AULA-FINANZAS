@@ -28,7 +28,7 @@ public class Ingreso extends javax.swing.JFrame {
         listCategorias.add("Inversiones");
         listCategorias.add("Renta");
         listCategorias.add("Regalos");
-        listCategorias.add("Otros");
+        listCategorias.add("Otros ingresos");
         listCuentas.add("Efectivo");
         listCuentas.add("Ahorros");
         listCuentas.add("Banco");

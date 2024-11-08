@@ -32,7 +32,6 @@ public class Egreso extends javax.swing.JFrame {
         listCategorias.add("Vida y Entretenimiento");
         listCategorias.add("Comunicaciones");
         listCategorias.add("Gastos financieros");
-        listCategorias.add("Inversiones");
         listCategorias.add("Otros");
         listCuentas.add("Efectivo");
         listCuentas.add("Ahorros");
