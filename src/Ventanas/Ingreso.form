@@ -51,10 +51,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="Principal" min="-2" pref="821" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="137" max="32767" attributes="0"/>
-          </Group>
+          <Component id="Principal" min="-2" pref="821" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
