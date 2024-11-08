@@ -4,6 +4,7 @@
  */
 package Ventanas;
 
+import DB.ingresos_Egresos;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,8 +16,12 @@ public class Egreso extends javax.swing.JFrame {
     /**
      * Creates new form Egreso
      */
-    public Egreso() {
+    public Egreso(String UA, String ahorro, String efectivo, String banco) {
         initComponents();
+        Tusario.setText(UA);
+        Tefectivo.setText(efectivo);
+        Tahorro.setText(ahorro);
+        Tbanco.setText(banco);
           setIconImage(new ImageIcon(getClass().getResource("/Ventanas/pictures/c1.png")).getImage());
         
         listCategorias.add("Comidas");
@@ -28,7 +33,7 @@ public class Egreso extends javax.swing.JFrame {
         listCategorias.add("Comunicaciones");
         listCategorias.add("Gastos financieros");
         listCategorias.add("Inversiones");
-        listCategorias.add("Gastos");
+        listCategorias.add("Otros");
         listCuentas.add("Efectivo");
         listCuentas.add("Ahorros");
         listCuentas.add("Banco");
@@ -65,20 +70,21 @@ public class Egreso extends javax.swing.JFrame {
         listCategorias = new java.awt.Choice();
         jPanel4 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        Tusario = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        Tahorro = new javax.swing.JLabel();
+        Tefectivo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
+        Tbanco = new javax.swing.JLabel();
         btnRegresarPrincipal = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         listCuentas = new java.awt.Choice();
         txtIngresos = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
+        btnGuardar = new javax.swing.JButton();
 
         Principal.setBackground(new java.awt.Color(255, 255, 255));
         Principal.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,7 +103,6 @@ public class Egreso extends javax.swing.JFrame {
 
         jLabel18.setBackground(new java.awt.Color(0, 0, 0));
         jLabel18.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("0000000000");
 
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
@@ -112,12 +117,10 @@ public class Egreso extends javax.swing.JFrame {
 
         jLabel21.setBackground(new java.awt.Color(0, 0, 0));
         jLabel21.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("0000000000");
 
         jLabel22.setBackground(new java.awt.Color(0, 0, 0));
         jLabel22.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("0000000000");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ventanas/pictures/c3.png"))); // NOI18N
@@ -129,7 +132,6 @@ public class Egreso extends javax.swing.JFrame {
 
         jLabel24.setBackground(new java.awt.Color(0, 0, 0));
         jLabel24.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("0000000000");
 
         btnRegresarPrincipal1.setBackground(new java.awt.Color(0, 102, 102));
@@ -193,12 +195,10 @@ public class Egreso extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("SELECCIONE UNA CATEGORIA");
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("SELECCIONE UNA CUENTA");
 
         listCuentas1.setBackground(new java.awt.Color(0, 102, 102));
@@ -210,7 +210,6 @@ public class Egreso extends javax.swing.JFrame {
 
         jLabel25.setBackground(new java.awt.Color(0, 0, 0));
         jLabel25.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("INGRESOS");
 
         javax.swing.GroupLayout PrincipalLayout = new javax.swing.GroupLayout(Principal);
@@ -256,7 +255,6 @@ public class Egreso extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 400));
         setResizable(false);
 
         Principal1.setBackground(new java.awt.Color(255, 255, 255));
@@ -274,30 +272,27 @@ public class Egreso extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("USUARIO: ");
 
-        jLabel27.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel27.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel27.setText("0000000000");
+        Tusario.setBackground(new java.awt.Color(0, 0, 0));
+        Tusario.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        Tusario.setText("0000000000");
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
         jLabel28.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel28.setText("EFECTIVO $");
+        jLabel28.setText("AHORRO $");
 
         jLabel29.setBackground(new java.awt.Color(255, 255, 255));
         jLabel29.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel29.setText("AHORROS $");
+        jLabel29.setText("EFECTIVO $");
 
-        jLabel30.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel30.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel30.setText("0000000000");
+        Tahorro.setBackground(new java.awt.Color(0, 0, 0));
+        Tahorro.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        Tahorro.setText("0000000000");
 
-        jLabel31.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel31.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel31.setText("0000000000");
+        Tefectivo.setBackground(new java.awt.Color(0, 0, 0));
+        Tefectivo.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        Tefectivo.setText("0000000000");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ventanas/pictures/c3.png"))); // NOI18N
 
@@ -306,15 +301,19 @@ public class Egreso extends javax.swing.JFrame {
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("BANCO $");
 
-        jLabel33.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel33.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel33.setText("0000000000");
+        Tbanco.setBackground(new java.awt.Color(0, 0, 0));
+        Tbanco.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        Tbanco.setText("0000000000");
 
         btnRegresarPrincipal.setBackground(new java.awt.Color(0, 102, 102));
         btnRegresarPrincipal.setForeground(new java.awt.Color(0, 102, 102));
         btnRegresarPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ventanas/pictures/c5.png"))); // NOI18N
         btnRegresarPrincipal.setBorderPainted(false);
+        btnRegresarPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarPrincipalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -336,12 +335,12 @@ public class Egreso extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(Tusario, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Tefectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Tahorro, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Tbanco, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -355,30 +354,28 @@ public class Egreso extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jLabel27))
+                    .addComponent(Tusario))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
-                    .addComponent(jLabel31))
+                    .addComponent(Tefectivo))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(jLabel30))
+                    .addComponent(Tahorro))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
-                    .addComponent(jLabel33))
+                    .addComponent(Tbanco))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("SELECCIONE UNA CATEGORIA");
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("SELECCIONE UNA CUENTA");
 
         listCuentas.setBackground(new java.awt.Color(0, 102, 102));
@@ -387,11 +384,27 @@ public class Egreso extends javax.swing.JFrame {
         txtIngresos.setBackground(new java.awt.Color(0, 102, 102));
         txtIngresos.setFont(new java.awt.Font("Roboto Medium", 2, 14)); // NOI18N
         txtIngresos.setForeground(new java.awt.Color(255, 255, 255));
+        txtIngresos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIngresosKeyTyped(evt);
+            }
+        });
 
         jLabel34.setBackground(new java.awt.Color(0, 0, 0));
         jLabel34.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
         jLabel34.setText("EGRESOS");
+
+        btnGuardar.setBackground(new java.awt.Color(0, 102, 102));
+        btnGuardar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnGuardar.setBorderPainted(false);
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Principal1Layout = new javax.swing.GroupLayout(Principal1);
         Principal1.setLayout(Principal1Layout);
@@ -399,22 +412,28 @@ public class Egreso extends javax.swing.JFrame {
             Principal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Principal1Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(Principal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Principal1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addGroup(Principal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(Principal1Layout.createSequentialGroup()
-                                .addComponent(txtIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(456, 456, 456))
+                                .addGroup(Principal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(Principal1Layout.createSequentialGroup()
+                                        .addComponent(txtIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(456, 456, 456))
+                            .addGroup(Principal1Layout.createSequentialGroup()
+                                .addGroup(Principal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(listCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(listCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(Principal1Layout.createSequentialGroup()
-                        .addGroup(Principal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(121, 121, 121)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         Principal1Layout.setVerticalGroup(
             Principal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,6 +450,8 @@ public class Egreso extends javax.swing.JFrame {
                 .addComponent(jLabel34)
                 .addGap(18, 18, 18)
                 .addComponent(txtIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -451,11 +472,33 @@ public class Egreso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtIngresosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIngresosKeyTyped
+      char c= evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtIngresosKeyTyped
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        String U = Tusario.getText();
+        String tipo= listCategorias.getSelectedItem();
+        String cuenta= listCuentas.getSelectedItem();
+        int cantidad=Integer.parseInt(txtIngresos.getText());
+        ingresos_Egresos po = new ingresos_Egresos();
+        po.egresos(U, tipo, cantidad, cuenta);
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnRegresarPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarPrincipalActionPerformed
+         Principal v= new Principal (Tusario.getText());
+        v.setVisible(true);
+        dispose();
+        v.setTitle("Finanzas");
+        v.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnRegresarPrincipalActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-           Egreso v = new Egreso ();
+           Egreso v = new Egreso ("0","0","0","0");
            v.setVisible(true);
              v.setTitle("Egreso");
              v.setLocationRelativeTo(null);
@@ -470,6 +513,11 @@ public class Egreso extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Principal;
     private javax.swing.JPanel Principal1;
+    private javax.swing.JLabel Tahorro;
+    private javax.swing.JLabel Tbanco;
+    private javax.swing.JLabel Tefectivo;
+    private javax.swing.JLabel Tusario;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRegresarPrincipal;
     private javax.swing.JButton btnRegresarPrincipal1;
     private javax.swing.JLabel jLabel17;
@@ -483,14 +531,10 @@ public class Egreso extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

@@ -185,7 +185,13 @@ public class Login extends javax.swing.JFrame {
         Data_Base_Users cn = new Data_Base_Users();
         String id= CajDocumentodeidentidad.getText();
         String pass=CajContraseña.getText();
-        cn.validacion_DB(id, pass);
+        if(cn.validacion_DB(id, pass)){
+            Principal p = new Principal(id);
+            p.setVisible(true);
+            dispose();
+            p.setTitle("Principal");
+            p.setLocationRelativeTo(null);
+        }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void CajDocumentodeidentidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CajDocumentodeidentidadKeyTyped

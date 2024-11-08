@@ -120,9 +120,29 @@ public class ingresos_Egresos {
                 System.out.println("Error = " + e);
             }  
         }
+          public Integer gastos_tipo(String id, String tipo){
+              int cantidad=0;
+            try{
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("select * from Economia where ID = ? AND TIPO = ?");
+            pst.setString(1, id);
+            pst.setString(2,tipo);
+             ResultSet rs = pst.executeQuery();
+             if(rs.next()){
+            do{
+           
+               cantidad+=(rs.getInt(4)*-1);
+            
+            }while(rs.next());
+            
+             }else{
+                 return cantidad;
+             }
+            }catch(SQLException e){
+                
+            }
+            return cantidad;
+          }
           public static void main(String[] args) {
-        ingresos_Egresos x = new ingresos_Egresos();
-        x.egresos("0", "dj", 1500000, "nequi");
-        
     }
 }

@@ -4,6 +4,8 @@
  */
 package Ventanas;
 
+import DB.ingresos_Egresos;
+import PDF.Pdf;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
@@ -14,9 +16,13 @@ import javax.swing.ImageIcon;
  */
 public class Principal extends javax.swing.JFrame {
       
-    public Principal() {
-         
+    public Principal(String UA) {
+         ingresos_Egresos a = new ingresos_Egresos();
          initComponents();
+         usuario_activo.setText(UA);
+         Cefectivo.setText(a.cantidad_Cuenta(UA, "Efectivo"));
+         Cahorro.setText(a.cantidad_Cuenta(UA, "Ahorros"));
+         Cbanco.setText(a.cantidad_Cuenta(UA, "Banco"));
          setIconImage(new ImageIcon(getClass().getResource("/Ventanas/pictures/c1.png")).getImage());
       
         
@@ -33,11 +39,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        Cefectivo = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        Cahorro = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        Cbanco = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnActualizarGrafica = new javax.swing.JButton();
         pizarra = new javax.swing.JPanel();
@@ -46,7 +52,7 @@ public class Principal extends javax.swing.JFrame {
         btnPDF = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        usuario_activo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnCerrarSesion = new javax.swing.JButton();
 
@@ -63,48 +69,45 @@ public class Principal extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("EFECTIVO $");
 
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("0000000000");
+        Cefectivo.setBackground(new java.awt.Color(0, 0, 0));
+        Cefectivo.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        Cefectivo.setText("0000000000");
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("AHORROS  $");
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("0000000000");
+        Cahorro.setBackground(new java.awt.Color(0, 0, 0));
+        Cahorro.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        Cahorro.setText("0000000000");
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("BANCO      $");
 
-        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel10.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("0000000000");
+        Cbanco.setBackground(new java.awt.Color(0, 0, 0));
+        Cbanco.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        Cbanco.setText("0000000000");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Cefectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Cahorro, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Cbanco, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
         jPanel2Layout.setVerticalGroup(
@@ -113,11 +116,11 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel4)
+                    .addComponent(Cefectivo)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel5)
+                    .addComponent(Cahorro)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel10))
+                    .addComponent(Cbanco))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -216,10 +219,9 @@ public class Principal extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("USUARIO: ");
 
-        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("0000000000");
+        usuario_activo.setBackground(new java.awt.Color(0, 0, 0));
+        usuario_activo.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        usuario_activo.setText("0000000000");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ventanas/pictures/c3.png"))); // NOI18N
 
@@ -227,6 +229,11 @@ public class Principal extends javax.swing.JFrame {
         btnCerrarSesion.setForeground(new java.awt.Color(0, 102, 102));
         btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ventanas/pictures/c4.png"))); // NOI18N
         btnCerrarSesion.setBorderPainted(false);
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -236,7 +243,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usuario_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jLabel1)
                 .addGap(160, 160, 160)
@@ -251,7 +258,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel3)))
+                            .addComponent(usuario_activo)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel1))
@@ -311,17 +318,47 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresoActionPerformed
+       String U = usuario_activo.getText();
+       String A = Cahorro.getText();
+       String E = Cefectivo.getText();
+       String B = Cbanco.getText();
        
+        Ingreso i = new Ingreso(U,A,E,B);
+        i.setVisible(true);
+        dispose();
+        i.setTitle("Ingreso");
+        i.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnIngresoActionPerformed
 
     private void btnEgresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEgresoActionPerformed
-        // TODO add your handling code here:
+       String U = usuario_activo.getText();
+       String A = Cahorro.getText();
+       String E = Cefectivo.getText();
+       String B = Cbanco.getText();
+       
+        Egreso i = new Egreso(U,A,E,B);
+        i.setVisible(true);
+        dispose();
+        i.setTitle("Egreso");
+        i.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnEgresoActionPerformed
 
     private void btnActualizarGraficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarGraficaActionPerformed
        Graphics lapiz = pizarra.getGraphics();
+       ingresos_Egresos IE = new ingresos_Egresos();
+       String u=usuario_activo.getText();
 // Variables de la gráfica
-int comidas = 10, compras = 20, viviendas = 30, transportes = 40, vehiculos = 50, vidaentretenimiento = 60, comunicaciones = 70, gastosfinancieros = 80, inversiones = 90, ingresos = 100;
+int comidas = IE.gastos_tipo(u, "Comidas"), 
+        compras = IE.gastos_tipo(u, "Compras"), 
+        viviendas = IE.gastos_tipo(u, "Viviendas"), 
+        transportes = IE.gastos_tipo(u, "Transporte"), 
+        vehiculos = IE.gastos_tipo(u, "Vehiculos"), 
+        vidaentretenimiento = IE.gastos_tipo(u, "Vida y Entretenimiento"), 
+        comunicaciones = IE.gastos_tipo(u, "Comunicaciones"), 
+        gastosfinancieros = IE.gastos_tipo(u, "Gastos financieros"), 
+        inversiones = IE.gastos_tipo(u, "Inversiones"), 
+        ingresos = IE.gastos_tipo(u, "Otros");
+
 
 
 
@@ -415,15 +452,24 @@ lapiz.drawString("Ingresos", 585, 175);
     }//GEN-LAST:event_btnActualizarGraficaActionPerformed
 
     private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
-        // TODO add your handling code here:
+        Pdf p = new Pdf();
+        p.reporte_PDF(usuario_activo.getText());
     }//GEN-LAST:event_btnPDFActionPerformed
+
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+             Login v = new Login ();
+             v.setVisible(true);
+             dispose();
+             v.setTitle("Inciar Sesion");
+             v.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       
-        Principal v= new Principal ();
+       String UA="0000000000";
+        Principal v= new Principal (UA);
         
         v.setVisible(true);
              v.setTitle("Finanzas");
@@ -438,16 +484,15 @@ lapiz.drawString("Ingresos", 585, 175);
     */}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Cahorro;
+    private javax.swing.JLabel Cbanco;
+    private javax.swing.JLabel Cefectivo;
     private javax.swing.JButton btnActualizarGrafica;
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnEgreso;
     private javax.swing.JButton btnIngreso;
     private javax.swing.JButton btnPDF;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -457,5 +502,6 @@ lapiz.drawString("Ingresos", 585, 175);
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel pizarra;
+    private javax.swing.JLabel usuario_activo;
     // End of variables declaration//GEN-END:variables
 }

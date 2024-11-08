@@ -4,6 +4,7 @@
  */
 package DB;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -61,12 +62,12 @@ public class Data_Base_Users {
             pst.setString(1, id);
             pst.setString(2,pass);
             pst.executeUpdate();
-            System.out.println("se ha insertado correctamente");
+            JOptionPane.showMessageDialog(null, "se ha insertado correctamente");
             }catch(SQLException e){
                 System.out.println("Error: " +  e);
             }
         }else{
-            System.out.println("El usuario ya se encuentra registrado por favor inicie sesion");
+            JOptionPane.showMessageDialog(null, "El usuario ya se encuentra registrado por favor inicie sesion");
         }
     }
     
