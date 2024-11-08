@@ -4,6 +4,8 @@
  */
 package finanzas;
 
+import Ventanas.Login;
+
 /**
  *
  * @author FRANKY F
@@ -14,7 +16,10 @@ public class Finanzas {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("hola mundo");
+        Login v = new Login ();
+             v.setVisible(true);
+             v.setTitle("Inciar Sesion");
+             v.setLocationRelativeTo(null);
     }
     
 }
