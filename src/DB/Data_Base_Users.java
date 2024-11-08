@@ -53,6 +53,26 @@ public class Data_Base_Users {
             return false;
         }
     }
+    public String contraseña_DB_USER(String id){
+        String pass="";
+        try{  
+            Connection cn = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst =cn.prepareStatement("select * from Usuarios where ID = ?");
+            pst.setString(1, id);
+            
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                pass=rs.getString(2);
+                return pass;
+            }else{
+                return pass;
+            }
+        }catch(SQLException e){
+            System.out.println("Error: " + e);
+            return pass;
+        }
+    }
     
     public void crear_Usuario(String id, String pass){
         if(!existe_DB_USER(id)){

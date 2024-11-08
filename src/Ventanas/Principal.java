@@ -468,7 +468,11 @@ lapiz.drawString("Otros", 585, 145);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnConfigurarcuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigurarcuentaActionPerformed
-        // TODO add your handling code here:
+             Cuenta v= new Cuenta (usuario_activo.getText());
+             dispose();
+             v.setVisible(true);
+             v.setTitle("Configuracion de usuario");
+             v.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnConfigurarcuentaActionPerformed
 
     /**

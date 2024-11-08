@@ -4,6 +4,7 @@
  */
 package Ventanas;
 
+import DB.Data_Base_Users;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,8 +16,11 @@ public class Cuenta extends javax.swing.JFrame {
     /**
      * Creates new form Cuenta
      */
-    public Cuenta() {
+    public Cuenta(String UA) {
         initComponents();
+        Data_Base_Users DBU = new Data_Base_Users();
+        Tusario.setText(UA);
+        Tpass.setText(DBU.contraseña_DB_USER(UA));
          setIconImage(new ImageIcon(getClass().getResource("/Ventanas/pictures/c1.png")).getImage());
         
     }
@@ -37,19 +41,18 @@ public class Cuenta extends javax.swing.JFrame {
         btnRegresarPrincipal = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        Tusario1 = new javax.swing.JLabel();
+        Tpass = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         CajDocumentodeidentidad = new javax.swing.JTextField();
-        CajDocumentodeidentidad1 = new javax.swing.JTextField();
+        CajContraseña = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        btnGuardar1 = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -84,9 +87,9 @@ public class Cuenta extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("CONTRASEÑA:");
 
-        Tusario1.setBackground(new java.awt.Color(0, 0, 0));
-        Tusario1.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
-        Tusario1.setText("0000000000");
+        Tpass.setBackground(new java.awt.Color(0, 0, 0));
+        Tpass.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        Tpass.setText("0000000000");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -105,7 +108,7 @@ public class Cuenta extends javax.swing.JFrame {
                         .addGap(63, 63, 63)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Tusario, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Tusario1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Tpass, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(24, 24, 24))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -124,7 +127,7 @@ public class Cuenta extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(Tusario1))
+                    .addComponent(Tpass))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -156,10 +159,10 @@ public class Cuenta extends javax.swing.JFrame {
             }
         });
 
-        CajDocumentodeidentidad1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        CajDocumentodeidentidad1.addKeyListener(new java.awt.event.KeyAdapter() {
+        CajContraseña.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        CajContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                CajDocumentodeidentidad1KeyTyped(evt);
+                CajContraseñaKeyTyped(evt);
             }
         });
 
@@ -167,15 +170,15 @@ public class Cuenta extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         jLabel5.setText("NUEVA CONTRASEÑA");
 
-        btnGuardar1.setBackground(new java.awt.Color(0, 102, 102));
-        btnGuardar1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnGuardar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardar1.setText("ELIMINAR CUENTA");
-        btnGuardar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnGuardar1.setBorderPainted(false);
-        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setBackground(new java.awt.Color(0, 102, 102));
+        btnEliminar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("ELIMINAR CUENTA");
+        btnEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar1ActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -196,7 +199,7 @@ public class Cuenta extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CajDocumentodeidentidad, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
-                            .addComponent(CajDocumentodeidentidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CajContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -206,8 +209,8 @@ public class Cuenta extends javax.swing.JFrame {
                         .addGap(68, 68, 68)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(btnGuardar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,11 +225,11 @@ public class Cuenta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(CajDocumentodeidentidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CajContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(52, Short.MAX_VALUE))
@@ -257,7 +260,12 @@ public class Cuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegresarPrincipalActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-      
+      Data_Base_Users A = new Data_Base_Users();
+       if(!CajDocumentodeidentidad.getText().isBlank() && !CajContraseña.getText().isBlank() ){
+       A.modificar_Usuario(Tusario.getText(), CajDocumentodeidentidad.getText(),CajContraseña.getText());
+       Tusario.setText(CajDocumentodeidentidad.getText());
+       Tpass.setText(CajContraseña.getText());
+      }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void CajDocumentodeidentidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CajDocumentodeidentidadKeyTyped
@@ -266,21 +274,26 @@ public class Cuenta extends javax.swing.JFrame {
         //con esto se evita que nos pongan letras y/o simbolos extraños en los ID
     }//GEN-LAST:event_CajDocumentodeidentidadKeyTyped
 
-    private void CajDocumentodeidentidad1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CajDocumentodeidentidad1KeyTyped
+    private void CajContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CajContraseñaKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_CajDocumentodeidentidad1KeyTyped
+    }//GEN-LAST:event_CajContraseñaKeyTyped
 
-    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardar1ActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+     Data_Base_Users O = new Data_Base_Users();
+     O.eliminar_Usuario(Tusario.getText());
+             Login v = new Login ();
+             v.setVisible(true);
+             dispose();
+             v.setTitle("Inciar Sesion");
+             v.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
        
-        Cuenta v= new Cuenta ();
-        
+        Cuenta v= new Cuenta ("0");
            v.setVisible(true);
              v.setTitle("Configuracion de usuario");
              v.setLocationRelativeTo(null);
@@ -295,12 +308,12 @@ public class Cuenta extends javax.swing.JFrame {
     */}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CajContraseña;
     private javax.swing.JTextField CajDocumentodeidentidad;
-    private javax.swing.JTextField CajDocumentodeidentidad1;
+    private javax.swing.JLabel Tpass;
     private javax.swing.JLabel Tusario;
-    private javax.swing.JLabel Tusario1;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnRegresarPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
