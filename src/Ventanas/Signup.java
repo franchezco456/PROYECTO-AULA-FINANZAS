@@ -42,7 +42,6 @@ public class Signup extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrarse");
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -73,7 +72,7 @@ public class Signup extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel1);
-        jPanel1.setBounds(0, 0, 400, 500);
+        jPanel1.setBounds(0, 0, 406, 500);
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
         jLabel1.setFont(new java.awt.Font("Roboto Black", 2, 36)); // NOI18N
@@ -84,27 +83,26 @@ public class Signup extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CONTRASEÑA");
         jPanel2.add(jLabel2);
         jLabel2.setBounds(420, 230, 220, 16);
 
-        CajContraseña.setBackground(new java.awt.Color(255, 255, 255));
         CajContraseña.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        CajContraseña.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(CajContraseña);
         CajContraseña.setBounds(420, 260, 350, 30);
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("DOCUMENTO DE IDENTIDAD");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(420, 150, 220, 17);
+        jLabel3.setBounds(420, 150, 220, 19);
 
-        CajDocumentodeidentidad.setBackground(new java.awt.Color(255, 255, 255));
         CajDocumentodeidentidad.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        CajDocumentodeidentidad.setForeground(new java.awt.Color(0, 0, 0));
+        CajDocumentodeidentidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CajDocumentodeidentidadKeyTyped(evt);
+            }
+        });
         jPanel2.add(CajDocumentodeidentidad);
         CajDocumentodeidentidad.setBounds(420, 180, 350, 30);
 
@@ -159,6 +157,12 @@ public class Signup extends javax.swing.JFrame {
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarseActionPerformed
+
+    private void CajDocumentodeidentidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CajDocumentodeidentidadKeyTyped
+         char c= evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+        //con esto se evita que nos pongan letras y/o simbolos extraños en los ID
+    }//GEN-LAST:event_CajDocumentodeidentidadKeyTyped
 
     /**
      * @param args the command line arguments

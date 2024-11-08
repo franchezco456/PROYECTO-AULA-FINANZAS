@@ -23,14 +23,10 @@ public class Data_Base_Users {
             ResultSet rs = pst.executeQuery();
             
             if(rs.next()){
-                //cambiar
-                System.out.println("CONEXION EXITOSA ");
-                System.out.println(rs.getString("ID"));
-                System.out.println(rs.getString("PASSWORD"));
+                //conexion exitosa :D
                 return true;
             }else{
                 //cambiar
-                System.out.println("no existe");
                 return false;
             }
         }catch(SQLException e){
