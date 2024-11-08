@@ -95,7 +95,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel1);
-        jPanel1.setBounds(0, 0, 406, 500);
+        jPanel1.setBounds(0, 0, 400, 500);
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
         jLabel1.setFont(new java.awt.Font("Roboto Black", 2, 36)); // NOI18N
@@ -118,7 +118,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         jLabel3.setText("DOCUMENTO DE IDENTIDAD");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(420, 150, 220, 19);
+        jLabel3.setBounds(420, 150, 220, 17);
 
         CajDocumentodeidentidad.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         CajDocumentodeidentidad.addKeyListener(new java.awt.event.KeyAdapter() {

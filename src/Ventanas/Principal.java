@@ -55,6 +55,7 @@ public class Principal extends javax.swing.JFrame {
         usuario_activo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnCerrarSesion = new javax.swing.JButton();
+        btnConfigurarcuenta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -96,7 +97,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Cefectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,36 +236,45 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        btnConfigurarcuenta.setBackground(new java.awt.Color(0, 102, 102));
+        btnConfigurarcuenta.setForeground(new java.awt.Color(0, 102, 102));
+        btnConfigurarcuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ventanas/pictures/c6.png"))); // NOI18N
+        btnConfigurarcuenta.setBorderPainted(false);
+        btnConfigurarcuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfigurarcuentaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCerrarSesion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(usuario_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jLabel1)
-                .addGap(160, 160, 160)
-                .addComponent(btnCerrarSesion)
-                .addContainerGap())
+                .addGap(166, 166, 166)
+                .addComponent(btnConfigurarcuenta))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(usuario_activo)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnCerrarSesion)))
+                    .addComponent(btnConfigurarcuenta)
+                    .addComponent(btnCerrarSesion))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -457,6 +467,10 @@ lapiz.drawString("Otros", 585, 145);
              v.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
+    private void btnConfigurarcuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigurarcuentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfigurarcuentaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -482,6 +496,7 @@ lapiz.drawString("Otros", 585, 145);
     private javax.swing.JLabel Cefectivo;
     private javax.swing.JButton btnActualizarGrafica;
     private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnConfigurarcuenta;
     private javax.swing.JButton btnEgreso;
     private javax.swing.JButton btnIngreso;
     private javax.swing.JButton btnPDF;
