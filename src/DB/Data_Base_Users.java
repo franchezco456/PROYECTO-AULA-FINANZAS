@@ -27,7 +27,7 @@ public class Data_Base_Users {
                 //conexion exitosa :D
                 return true;
             }else{
-                //cambiar
+                JOptionPane.showMessageDialog(null, "usuario y/o contraseña incorrectos");
                 return false;
             }
         }catch(SQLException e){

@@ -20,11 +20,11 @@ public class Principal extends javax.swing.JFrame {
          ingresos_Egresos a = new ingresos_Egresos();
          initComponents();
          usuario_activo.setText(UA);
-         Cefectivo.setText(a.cantidad_Cuenta(UA, "Efectivo"));
-         Cahorro.setText(a.cantidad_Cuenta(UA, "Ahorros"));
-         Cbanco.setText(a.cantidad_Cuenta(UA, "Banco"));
+         int [] cantidad = a.cantidad_Cuenta(UA);
+         Cefectivo.setText(cantidad[0]+"");
+         Cahorro.setText(cantidad[1]+"");
+         Cbanco.setText(cantidad[2]+"");
          setIconImage(new ImageIcon(getClass().getResource("/Ventanas/pictures/c1.png")).getImage());
-      
         
        
            
@@ -332,7 +332,6 @@ public class Principal extends javax.swing.JFrame {
        String A = Cahorro.getText();
        String E = Cefectivo.getText();
        String B = Cbanco.getText();
-       
         Ingreso i = new Ingreso(U,A,E,B);
         i.setVisible(true);
         dispose();
@@ -358,18 +357,21 @@ public class Principal extends javax.swing.JFrame {
        ingresos_Egresos IE = new ingresos_Egresos();
        String u=usuario_activo.getText();
 // Variables de la gráfica
-int comidas = IE.gastos_tipo(u, "Comidas"), 
-        compras = IE.gastos_tipo(u, "Compras"), 
-        viviendas = IE.gastos_tipo(u, "Viviendas"), 
-        transportes = IE.gastos_tipo(u, "Transporte"), 
-        vehiculos = IE.gastos_tipo(u, "Vehiculos"), 
-        vidaentretenimiento = IE.gastos_tipo(u, "Vida y Entretenimiento"), 
-        comunicaciones = IE.gastos_tipo(u, "Comunicaciones"), 
-        gastosfinancieros = IE.gastos_tipo(u, "Gastos financieros"), 
-        otros = IE.gastos_tipo(u, "Otros");
+       int [] variables = IE.gastos_tipo(u);
+int comidas =variables[0], 
+        compras =variables[1], 
+        viviendas =variables[2], 
+        transportes = variables[3], 
+        vehiculos = variables[4], 
+        vidaentretenimiento =variables[5], 
+        comunicaciones = variables[6], 
+        gastosfinancieros =variables[7], 
+        otros =variables[8];
 
-
-
+int [] cuentas = IE.cantidad_Cuenta(u);
+         Cefectivo.setText(cuentas[0]+"");
+         Cahorro.setText(cuentas[1]+"");
+         Cbanco.setText(cuentas[2]+"");
 
 
 
