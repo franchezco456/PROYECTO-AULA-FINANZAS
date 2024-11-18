@@ -36,11 +36,11 @@ public class Signup extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        CajContraseña = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         CajDocumentodeidentidad = new javax.swing.JTextField();
         btnVolver = new javax.swing.JButton();
         btnRegistrarse = new javax.swing.JButton();
+        CajContraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrarse");
@@ -74,7 +74,7 @@ public class Signup extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel1);
-        jPanel1.setBounds(0, 0, 406, 500);
+        jPanel1.setBounds(0, 0, 400, 500);
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
         jLabel1.setFont(new java.awt.Font("Roboto Black", 2, 36)); // NOI18N
@@ -89,15 +89,11 @@ public class Signup extends javax.swing.JFrame {
         jPanel2.add(jLabel2);
         jLabel2.setBounds(420, 230, 220, 16);
 
-        CajContraseña.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jPanel2.add(CajContraseña);
-        CajContraseña.setBounds(420, 260, 350, 30);
-
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         jLabel3.setText("DOCUMENTO DE IDENTIDAD");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(420, 150, 220, 19);
+        jLabel3.setBounds(420, 150, 220, 17);
 
         CajDocumentodeidentidad.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         CajDocumentodeidentidad.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -133,6 +129,8 @@ public class Signup extends javax.swing.JFrame {
         });
         jPanel2.add(btnRegistrarse);
         btnRegistrarse.setBounds(440, 320, 140, 40);
+        jPanel2.add(CajContraseña);
+        CajContraseña.setBounds(420, 260, 350, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,7 +185,7 @@ public class Signup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CajContraseña;
+    private javax.swing.JPasswordField CajContraseña;
     private javax.swing.JTextField CajDocumentodeidentidad;
     private javax.swing.JButton btnRegistrarse;
     private javax.swing.JButton btnVolver;
